@@ -1,0 +1,10 @@
+/.idea
+/mjw-framework.iml
+/mjw-common/target
+/mjw-common/mjw-common.iml
+/mjw-core/target
+/mjw-core/mjw-core.iml
+/mjw-util/target
+/mjw-util/mjw-util.iml
+/mjw-web/target
+/mjw-web/mjw-web.iml
