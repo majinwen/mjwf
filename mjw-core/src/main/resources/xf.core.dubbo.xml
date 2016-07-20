@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+	<!--<dubbo:application name="${dubbo.application.name}" organization="jjs" owner="${dubbo.application.owner}"/>
+
+	<dubbo:registry protocol="zookeeper" address="${zookeeper.address}"
+					check="false"/>
+
+	<dubbo:reference id="checkPurviewService" interface="com.jjshome.jjspurview.service.provide.ICheckPurviewService"
+					 filter="accesslog,echo" check="false" timeout="6000"/>
+
+	<dubbo:reference id="hrDeptService" interface="com.jjshome.umc.api.client.IHrDeptRemoteService"
+					 filter="accesslog,echo" check="false" timeout="6000" />
+					 
+	<dubbo:reference id="hrWorkerService" interface="com.jjshome.umc.api.client.IHrWorkerRemoteService"
+					 filter="accesslog,echo" check="false" timeout="10000" />
+	&lt;!&ndash; 楼盘字典begin &ndash;&gt;
+	<dubbo:reference id="communityService" interface="com.jjshome.esf.api.service.ICommunityService"
+					 filter="accesslog,echo" check="false" timeout="6000"/>
+	
+	<dubbo:reference id="dictService" interface="com.jjshome.esf.api.service.IDictService" 
+					 filter="accesslog,echo" check="false" timeout="6000"/>
+					 
+	<dubbo:reference id="apartmentLayoutService" interface="com.jjshome.esf.api.service.IApartmentLayoutService" 
+					 filter="accesslog,echo" check="false" timeout="6000"/>
+					 
+	<dubbo:reference id="cityService" interface="com.jjshome.esf.api.service.ICityService" 
+					 filter="accesslog,echo" check="false" timeout="6000"/>
+					 
+	
+	<dubbo:reference id="dictItemService" interface="com.jjshome.esf.api.service.IDictItemService"
+					 filter="accesslog,echo" check="false" timeout="6000"/>
+	&lt;!&ndash; 楼盘字典end &ndash;&gt;
+			 
+	<dubbo:reference id="remoteTaskService" interface="com.jjshome.workflowplatform.service.provider.IRemoteTaskService"
+					 filter="accesslog,echo" check="false"  timeout="6000"/>
+					 
+	<dubbo:reference id="remoteFlowService" interface="com.jjshome.workflowplatform.service.provider.IRemoteFlowService"
+					 filter="accesslog,echo" check="false"  timeout="6000" />
+		-->
+</beans>

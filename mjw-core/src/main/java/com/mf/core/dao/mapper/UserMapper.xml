@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mf.core.dao.UserDao">
+
+    <resultMap id="userResultMap" type="com.mf.common.model.UserInfo">
+        <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+        <result column="USER_NAME" jdbcType="VARCHAR" property="userName" />
+        <result column="LOGIN_PASSWORD" jdbcType="VARCHAR" property="loginPassword" />
+        <result column="EMPLOYEE_NO" jdbcType="VARCHAR" property="employeeNo" />
+        <result column="ORG_CODE" jdbcType="VARCHAR" property="orgCode" />
+        <result column="USER_STATUS" jdbcType="VARCHAR" property="userStatus" />
+        <result column="EMAIL" jdbcType="VARCHAR" property="email" />
+        <result column="ENTRY_DATE" jdbcType="DATE" property="entryDate" />
+        <result column="PWD_EXPIRED_DATE" jdbcType="DATE" property="pwdExpiredDate" />
+        <result column="LEAVE_DATE" jdbcType="DATE" property="leaveDate" />
+        <result column="IDENTITY_NO" jdbcType="VARCHAR" property="identityNo" />
+
+    </resultMap>
+
+
+    <sql id="Base_Column_List">
+        USER_ID, ORG_CODE, ORG_NAME, USER_NAME, EMPLOYEE_NO,
+        LOGIN_PASSWORD, EMAIL, USER_STATUS, ENTRY_DATE, PWD_EXPIRED_DATE,
+        LEAVE_DATE, IDENTITY_NO
+    </sql>
+
+    <select id="queryUser" parameterType="java.lang.String"
+            resultMap="userResultMap">
+        SELECT USER_ID, T_USER.ORG_CODE,  USER_NAME, EMPLOYEE_NO,
+        LOGIN_PASSWORD, EMAIL, USER_STATUS, ENTRY_DATE, PWD_EXPIRED_DATE,
+        LEAVE_DATE, IDENTITY_NO
+        FROM T_USER
+        where
+        USER_ID= lower(trim(#{userId,jdbcType=VARCHAR}))
+    </select>
+
+
+    <select id="queryAllUser"
+            resultMap="userResultMap">
+        SELECT USER_ID, T_USER.ORG_CODE,  USER_NAME, EMPLOYEE_NO,
+        LOGIN_PASSWORD, EMAIL, USER_STATUS, ENTRY_DATE, PWD_EXPIRED_DATE,
+        LEAVE_DATE, IDENTITY_NO
+        FROM T_USER
+
+    </select>
+
+
+
+</mapper>

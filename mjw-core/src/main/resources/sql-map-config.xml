@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+	</settings>
+	<!--
+	<typeAliases>
+		&lt;!&ndash; Json 实体别名 &ndash;&gt;
+		<typeAlias type="com.jjshome.xf.common.json.HtJson" alias="HtJson" />
+		<typeAlias type="com.jjshome.xf.common.json.HtnrJson" alias="HtnrJson" />
+		<typeAlias type="com.jjshome.xf.common.json.JfzzJson" alias="JfzzJson" />
+		<typeAlias type="com.jjshome.xf.common.json.XmzzJson" alias="XmzzJson" />
+		<typeAlias type="com.jjshome.xf.common.json.AjnrJson" alias="AjnrJson" />
+		<typeAlias type="com.jjshome.xf.common.json.YcxfknrJson" alias="YcxfknrJson" />
+		<typeAlias type="com.jjshome.xf.common.json.FjJson" alias="FjJson" />
+		<typeAlias type="com.jjshome.xf.common.json.DeveloperContactsJson" alias="DeveloperContactsJson" />
+        <typeAlias type="com.jjshome.xf.common.json.DeveloperPicJson" alias="DeveloperPicJson"/>
+		<typeAlias type="com.jjshome.xf.common.json.FollowPicJson" alias="FollowPicJson"/>
+		<typeAlias type="com.jjshome.xf.common.json.DiscountMsgJson" alias="DiscountMsgJson"/>
+
+
+
+		&lt;!&ndash; 枚举实体别名 &ndash;&gt;
+		<typeAlias type="com.jjshome.xf.common.enums.HtContractorType" alias="HtContractorType" />
+		<typeAlias type="com.jjshome.xf.common.enums.HtRoleType" alias="HtRoleType" />
+		<typeAlias type="com.jjshome.xf.common.enums.HtType" alias="HtType" />
+		<typeAlias type="com.jjshome.xf.common.enums.JfzzType" alias="JfzzType" />
+		<typeAlias type="com.jjshome.xf.common.enums.JieYongMode" alias="JieYongMode" />
+		<typeAlias type="com.jjshome.xf.common.enums.ProxyMode" alias="ProxyMode" />
+		<typeAlias type="com.jjshome.xf.common.enums.RecordState" alias="RecordState" />
+		<typeAlias type="com.jjshome.xf.common.enums.XmzzType" alias="XmzzType" />
+		<typeAlias type="com.jjshome.xf.common.enums.YesOrNo" alias="YesOrNo" />
+		<typeAlias type="com.jjshome.xf.common.enums.AjJieYongNode" alias="AjJieYongNode" />
+		<typeAlias type="com.jjshome.xf.common.enums.YcxJieYongNode" alias="YcxJieYongNode" />
+		<typeAlias type="com.jjshome.xf.common.enums.JslxType" alias="JslxType" />
+		<typeAlias type="com.jjshome.xf.common.enums.DzType" alias="DzType" />
+		<typeAlias type="com.jjshome.xf.common.enums.FxLevelType" alias="FxLevelType" />
+		<typeAlias type="com.jjshome.xf.common.enums.ProjectType" alias="ProjectType" />
+		<typeAlias type="com.jjshome.xf.common.enums.JieSuanType" alias="JieSuanType" />
+		<typeAlias type="com.jjshome.xf.common.enums.ProjectState" alias="ProjectState" />
+		<typeAlias type="com.jjshome.xf.common.enums.ApprovalState" alias="ApprovalState" />
+		<typeAlias type="com.jjshome.xf.common.enums.ProxyType" alias="ProxyType" />
+		<typeAlias type="com.jjshome.xf.common.enums.ApprovalYwType" alias="ApprovalYwType" />
+        <typeAlias type="com.jjshome.xf.common.enums.DeveloperType" alias="DeveloperType" />
+        <typeAlias type="com.jjshome.xf.common.enums.SpResult" alias="SpResult" />
+        <typeAlias type="com.jjshome.xf.common.enums.SaleState" alias="SaleState" />
+        <typeAlias type="com.jjshome.xf.common.enums.ApplyState" alias="ApplyState" />
+        <typeAlias type="com.jjshome.xf.common.enums.NoticeType" alias="NoticeType" />
+        <typeAlias type="com.jjshome.xf.common.enums.PeopleType" alias="PeopleType" />
+        <typeAlias type="com.jjshome.xf.common.enums.DiscountContentType" alias="DiscountContentType" />
+		<typeAlias type="com.jjshome.xf.common.enums.LogType" alias="LogType" />
+        <typeAlias type="com.jjshome.xf.common.enums.DiscountType" alias="DiscountType" />
+        <typeAlias type="com.jjshome.xf.common.enums.ShowState" alias="ShowState" />
+		<typeAlias type="com.jjshome.xf.common.enums.FollowType" alias="FollowType" />
+		<typeAlias type="com.jjshome.xf.common.enums.RelateType" alias="RelateType" />
+
+	</typeAliases>
+	<typeHandlers>
+		&lt;!&ndash; Json实体 到 Json字符串转换 &ndash;&gt;
+		<typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="HtJson" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="HtnrJson" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="JfzzJson" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="XmzzJson" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="AjnrJson" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="YcxfknrJson" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="FjJson" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="DeveloperContactsJson" />
+        <typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="DeveloperPicJson" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="FollowPicJson" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.JsonValueHandler" jdbcType="VARCHAR" javaType="DiscountMsgJson" />
+
+
+
+
+		&lt;!&ndash; 枚举 到 举的value值转换 &ndash;&gt;
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="HtContractorType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="HtRoleType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="HtType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="JfzzType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="JieYongMode" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="ProxyMode" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="RecordState" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="XmzzType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="YesOrNo" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="JslxType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="DzType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="FxLevelType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="ProjectType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="JieSuanType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="ProjectState" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="ApprovalState" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="ProxyType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="ApprovalYwType" />
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="DeveloperType" />
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="SpResult" />
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="SaleState" />
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="ApplyState" />
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="NoticeType" />
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="PeopleType" />
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="DiscountContentType" />
+		<typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="LogType" />
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="DiscountType" />
+
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="ShowState" />
+
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="FollowType" />
+        <typeHandler handler="com.jjshome.xf.core.mybatis.EnumValueHandler" jdbcType="INTEGER" javaType="RelateType" />
+
+	</typeHandlers>
+
+-->
+	<plugins>
+		<!-- com.github.pagehelper为PageHelper类所在包名 -->
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<!-- 4.0.0以后版本可以不设置该参数 -->
+			<property name="dialect" value="mysql" />
+			<!-- 该参数默认为false -->
+			<!-- 设置为true时，会将RowBounds第一个参数offset当成pageNum页码使用 -->
+			<!-- 和startPage中的pageNum效果一样 -->
+			<property name="offsetAsPageNum" value="true" />
+			<!-- 该参数默认为false -->
+			<!-- 设置为true时，使用RowBounds分页会进行count查询 -->
+			<property name="rowBoundsWithCount" value="true" />
+			<!-- 设置为true时，如果pageSize=0或者RowBounds.limit = 0就会查询出全部的结果 -->
+			<!-- （相当于没有执行分页查询，但是返回结果仍然是Page类型） -->
+			<property name="pageSizeZero" value="true" />
+			<!-- 3.3.0版本可用 - 分页参数合理化，默认false禁用 -->
+			<!-- 启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页 -->
+			<!-- 禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据 -->
+			<property name="reasonable" value="false" />
+			<!-- 3.5.0版本可用 - 为了支持startPage(Object params)方法 -->
+			<!-- 增加了一个`params`参数来配置参数映射，用于从Map或ServletRequest中取值 -->
+			<!-- 可以配置pageNum,pageSize,count,pageSizeZero,reasonable,不配置映射的用默认值 -->
+			<!-- 不理解该含义的前提下，不要随便复制该配置 -->
+			<property name="params" value="pageNum=start;pageSize=limit;" />
+		</plugin>
+	</plugins>
+	<mappers>
+	</mappers>
+</configuration>
