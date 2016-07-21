@@ -13,6 +13,7 @@
         <module>mjw-web</module>
         <module>mjw-util</module>
         <module>mjw-common</module>
+        <module>mjw-lucene</module>
     </modules>
     <!-- 项目属性 -->
     <properties>
