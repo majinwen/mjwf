@@ -1,4 +1,6 @@
-package com.mf.lucene.demo;
+package com.mf.lucene.demo.index;
+
+import com.mf.lucene.demo.HelloLucene;
 
 /**
  * Created by user on 2016/7/21.
@@ -18,7 +20,8 @@ public class TestLucene {
 
          //程序创建索引
         IndexUtil iu = new IndexUtil();
-         iu.index();
+        // iu.index();
+      iu.search02();
 
 
      }
