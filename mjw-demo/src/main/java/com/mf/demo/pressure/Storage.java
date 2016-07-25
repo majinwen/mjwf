@@ -9,15 +9,16 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class Storage {
 
-    BlockingQueue<Log> queues = new LinkedBlockingQueue<Log>();
+    BlockingQueue<LogPackge> queues = new LinkedBlockingQueue<LogPackge>();
 
     /**
      * 存储log
-     * @param log
+     * @param logPackge
      * @throws InterruptedException
      */
-    public void saveLog(Log log) throws InterruptedException {
-        queues.put(log);
+    public void saveLogPackge(LogPackge logPackge) throws InterruptedException {
+       // queues.put(logPackge);
+        queues.put(logPackge);
     }
 
     /**
@@ -26,13 +27,20 @@ public class Storage {
      * @throws InterruptedException
      */
 
-    public Log getLog() throws InterruptedException {
-        return queues.take();
+    public LogPackge getLogPackgeAndRemove() throws InterruptedException {
+        return queues.poll();
     }
-
+    public LogPackge getLogPackge() {
+        return  queues.peek();
+    }
 
     public Boolean isEmpty() {
         return queues.isEmpty();
+    }
+
+
+    public int size(){
+        return  queues.size();
     }
 
 }
