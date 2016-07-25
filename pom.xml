@@ -15,6 +15,7 @@
         <module>mjw-common</module>
         <module>mjw-lucene</module>
         <module>mjw-demo</module>
+        <module>lucene5</module>
     </modules>
     <!-- 项目属性 -->
     <properties>

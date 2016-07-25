@@ -174,6 +174,26 @@ public class SearcherUtil {
 
   }
 
+    public void  searchByQueryParse(Query query,int num){
+        try {
+            IndexSearcher searcher = getSearcher();
+           // Query query =  NumericRangeQuery.newIntRange(field,start,end,true,true);
+            TopDocs tds = searcher.search(query, num);
+            System.out.println("一共查询了：" + tds.totalHits);
+            for (ScoreDoc sd : tds.scoreDocs) {
+                Document doc = searcher.doc(sd.doc);
+                System.out.println("(" + sd.doc + ")" + doc.get("name") + "[" + doc.get("email") + "] ----->" + doc.get("id"));
+            }
+            searcher.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+
+
 
 
 }
