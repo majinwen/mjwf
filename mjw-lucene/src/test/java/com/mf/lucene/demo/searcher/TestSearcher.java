@@ -1,6 +1,6 @@
 package com.mf.lucene.demo.searcher;
 
-import com.mf.lucene.demo.searcher.SearcherUtil;
+import com.mf.lucene.util.FileIndexUtils;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.queryParser.QueryParser;
@@ -41,5 +41,23 @@ public class TestSearcher {
         Query query = queryParser.parse("like");
         su.searchByQueryParse(query,10);
     }
+
+    @Test
+    public void  indexFile(){
+        FileIndexUtils.index(true);
+    }
+
+   @Test
+    public void  testSearchPage01(){
+       su.searchPage("like",1,2);
+   }
+
+
+
+   @Test
+   public void testSearchNopage(){
+       su.searchNoPage("like");
+   }
+
 
 }

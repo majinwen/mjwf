@@ -1,4 +1,4 @@
-package com.mf.lucene.demo.searcher;
+package com.mf.lucene.util;
 
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
@@ -13,7 +13,7 @@ import org.apache.lucene.util.Version;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
+import java.util.Random;
 
 
 /**
@@ -44,13 +44,18 @@ public class FileIndexUtils {
 
             File file  = new File("D:/tmp/resource");
             Document doc = null;
+            Random random = new Random();
+            int index = 0;
             for (File f : file.listFiles()) {
+                int score = random.nextInt(600);
                 doc = new Document();
+                doc.add(new Field("id",String.valueOf(index++),Field.Store.YES,Field.Index.NOT_ANALYZED_NO_NORMS));
                 doc.add(new Field("content", new FileReader(f)));
                 doc.add(new Field("filename", f.getName(), Field.Store.YES, Field.Index.NOT_ANALYZED));
                 doc.add(new Field("path", f.getAbsolutePath(), Field.Store.YES, Field.Index.NOT_ANALYZED));
                 doc.add(new NumericField("date", Field.Store.YES, true).setLongValue(f.lastModified()));
                 doc.add(new NumericField("size", Field.Store.YES, true).setIntValue((int) (f.length() / 1024)));
+                doc.add(new NumericField("score", Field.Store.NO, true).setIntValue(score));
                 writer.addDocument(doc);
             }
         } catch (IOException e) {
