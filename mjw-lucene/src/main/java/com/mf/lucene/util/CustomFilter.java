@@ -21,7 +21,23 @@ public class CustomFilter {
             IndexSearcher searcher = new IndexSearcher(IndexReader.open(FileIndexUtils.getDirectory()));
             Query q = new TermQuery(new Term("content","java"));
             TopDocs tds = null;
-            tds = searcher.search(q,new MyIdFilter(),3);
+            tds = searcher.search(q,new MyIdFilter(new FilterAccesser() {
+                @Override
+                public String[] values() {
+                   // return new String[0];
+                    return  new String[]{"1","5"};
+                }
+
+                @Override
+                public String getField() {
+                    return "id";
+                }
+
+                @Override
+                public boolean set() {
+                    return true;
+                }
+            }),3);
             for (ScoreDoc sd : tds.scoreDocs
                     ) {
                 Document d = searcher.doc(sd.doc);

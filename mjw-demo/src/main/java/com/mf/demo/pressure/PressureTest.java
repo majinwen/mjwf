@@ -12,9 +12,9 @@ import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 public class PressureTest {
 
     public static void main(String[] args) {
-
+         // 日志地址
         String urlPath = "D:/tmp/zonglong.txt";
-
+         // 打印日志地址
         String logPath = "D:/tmp/wjjr_d.log";
         //线程数
         int threadNumber = 5;

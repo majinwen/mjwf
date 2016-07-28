@@ -18,21 +18,19 @@ import java.util.Date;
  */
 public class AdvanceSearch {
     private static IndexReader reader = null;
-
     static {
         try {
             reader = IndexReader.open(FileIndexUtils.getDirectory());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public IndexSearcher getSearcher(){
         try {
             if(reader == null){
                 reader = IndexReader.open(FileIndexUtils.getDirectory());
-            }else {
+            }else{
                 IndexReader tr = IndexReader.openIfChanged(reader);
                 if(tr != null){
                     reader.close();

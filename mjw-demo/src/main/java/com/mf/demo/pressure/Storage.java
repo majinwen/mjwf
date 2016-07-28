@@ -17,7 +17,6 @@ public class Storage {
      * @throws InterruptedException
      */
     public void saveLogPackge(LogPackge logPackge) throws InterruptedException {
-       // queues.put(logPackge);
         queues.put(logPackge);
     }
 

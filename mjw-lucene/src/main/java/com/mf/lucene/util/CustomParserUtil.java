@@ -17,7 +17,6 @@ import java.text.SimpleDateFormat;
  */
 public class CustomParserUtil {
     public void searcherByQuery(String querystr) {
-
         try {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             IndexSearcher searcher = new IndexSearcher(FileIndexUtils.getDirectory());
@@ -36,7 +35,6 @@ public class CustomParserUtil {
         } catch (ParseException e) {
             System.err.println(e.getMessage());
         }
-
     }
 
 

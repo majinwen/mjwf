@@ -60,7 +60,7 @@ public class ReadUrl implements  Runnable{
                             }
                         }
                         long endTime = System.currentTimeMillis();
-                        logfile.println("一组时间：" + (endTime - startTime));
+                        logfile.println("一组访问时间：" + (endTime - startTime));
                         logfile.flush();
                     }
                 }
@@ -88,10 +88,13 @@ public class ReadUrl implements  Runnable{
             String str = null;
             URLConnection con = url.openConnection();
             pressureInfo.addAllCount();
+
             r = new BufferedReader(new InputStreamReader(con.getInputStream(), "gbk"));
            while(null !=(str = r.readLine())){
+               System.out.println("返回："+ str);
                 if(str.toString().indexOf("<timeUsed>")!=-1){
                     //System.out.println("访问结果：" + str.toString().substring(str.toString().indexOf("<timeUsed>") + 10, str.toString().indexOf("</timeUsed>")));
+                   // System.out.println("返回："+ str);
                     if(storage.isEmpty()){
                         printCalculate();
                         System.exit(1);
@@ -108,7 +111,8 @@ public class ReadUrl implements  Runnable{
         } catch (UnsupportedEncodingException e1) {
             e1.printStackTrace();
         } catch (IOException e1) {
-            e1.printStackTrace();
+            //e1.printStackTrace();
+            System.out.println("URL不可用");
         }
         return "0";
     }
@@ -121,42 +125,5 @@ public class ReadUrl implements  Runnable{
         System.out.println("总访问次数：" + pressureInfo.getAllCount());
 
     }
-
-    /*public Runnable createBean(String url) {
-        //System.out.println("====url====:"+ url);
-        String[] strs = BLANK.split(url);
-        if (url.indexOf("reload") != -1) {
-            return null;
-        }
-        if (url.indexOf("\"POST") != -1) {
-            return null;
-        }
-
-        if (null != strs && strs.length > 6) {
-            String[] para = QUES.split(strs[6]);
-            if (para.length < 2) {
-                return null;
-            }
-            final String urlLink = strs[6];
-            return new Thread() {
-                public void run() {
-
-
-                    String ret = goUrl(urlLink);
-                    if(!"0".equals(ret)){
-                        ++ successC;
-                    }
-
-                }
-            };
-        }
-        return null;
-    }*/
-
-
-
-
-
-
 }
 
