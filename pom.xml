@@ -16,6 +16,7 @@
         <module>mjw-lucene</module>
         <module>mjw-demo</module>
         <module>lucene5</module>
+        <module>mjw-thrift</module>
     </modules>
     <!-- 项目属性 -->
     <properties>
