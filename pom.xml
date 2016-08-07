@@ -43,6 +43,36 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+
+
+
+        <!-- redis redis related.....start -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>1.6.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.7.3</version>
+        </dependency>
+        <!-- redis redis related.....end -->
+
+        <!--protostuff 序列号依赖-->
+        <dependency>
+            <groupId>com.dyuproject.protostuff</groupId>
+            <artifactId>protostuff-core</artifactId>
+            <version>1.0.10</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dyuproject.protostuff</groupId>
+            <artifactId>protostuff-runtime</artifactId>
+            <version>1.0.10</version>
+        </dependency>
+
+
         <!-- spring begin -->
         <dependency>
             <groupId>org.springframework</groupId>

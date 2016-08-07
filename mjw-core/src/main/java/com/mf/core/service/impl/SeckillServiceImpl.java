@@ -7,6 +7,7 @@ import com.mf.common.entity.SuccessKilled;
 import com.mf.common.enums.SeckillStateEnum;
 import com.mf.core.dao.SeckillDao;
 import com.mf.core.dao.SuccessKilledDao;
+import com.mf.core.dao.redis.RedisDao;
 import com.mf.core.exception.RepeatKillException;
 import com.mf.core.exception.SeckillCloseException;
 import com.mf.core.exception.SeckillException;
@@ -43,7 +44,7 @@ public class SeckillServiceImpl implements SeckillService {
     private SuccessKilledDao successKilledDao;
 
    // @Autowired
-  //  private RedisDao redisDao;
+    private RedisDao redisDao;
 
     //md5盐值字符串,用于混淆md5
     private final String slat = "JHJÓGJ$%^&*(wew34567eIHFv456789KBMB#$%^&*";
@@ -56,8 +57,17 @@ public class SeckillServiceImpl implements SeckillService {
         return seckillDao.queryById(seckillId);
     }
 
-    /*public Exposer exportSeckillUrl(long seckillId) {
+    public Exposer exportSeckillUrl(long seckillId) {
         //优化到缓存 先查缓存，然后缓存到redis.
+
+        /**
+         * get from redis
+         * if null
+         * get db
+         * else
+         *   put redis
+         *
+         */
         Seckill seckill = redisDao.getSeckill(seckillId);
         if(seckill == null){
             seckill = seckillDao.queryById(seckillId);
@@ -81,7 +91,7 @@ public class SeckillServiceImpl implements SeckillService {
         String md5 = getMD5(seckillId);
         return new Exposer(true, md5, seckillId);
     }
-*/
+
 
     /**
      * 使用注解控制事务的优点:
