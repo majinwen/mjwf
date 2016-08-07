@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @ContextConfiguration("classpath:xf.core.redis.xml")
 public class RedisDaoTest  extends TestCase{
-    private long id = 1001;
+   /* private long id = 1001;
     @Autowired
     private RedisDao redisDao;
     @Autowired
@@ -33,5 +33,5 @@ public class RedisDaoTest  extends TestCase{
                 System.out.println(seckill);
             }
         }
-    }
+    }*/
 }
