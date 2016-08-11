@@ -7,7 +7,16 @@ public class Advert {
 
     private  String city ;
     private  String title;
-    private  String lable;
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    private  String label;
     private  String url;
 
     public String getCity() {
@@ -26,13 +35,7 @@ public class Advert {
         this.title = title;
     }
 
-    public String getLable() {
-        return lable;
-    }
 
-    public void setLable(String lable) {
-        this.lable = lable;
-    }
 
     public String getUrl() {
         return url;
@@ -47,7 +50,7 @@ public class Advert {
         return "Advert{" +
                 "city='" + city + '\'' +
                 ", title='" + title + '\'' +
-                ", lable='" + lable + '\'' +
+                ", label='" + label + '\'' +
                 ", url='" + url + '\'' +
                 '}';
     }

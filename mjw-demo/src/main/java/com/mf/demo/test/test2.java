@@ -53,38 +53,43 @@ public class test2 {
     }
 
 
-    //读取广告文件
-    public static Map<String,List<Advert>> readTxtFile(String filePath) {
+    //读取广告文件(mody by majinwen 20160802)
+    public static Map<String,List<Advert>> getAdvertsMap(String advertFilePath) {
         //存放内容的map对象
-        // Map<Integer,String> filemaps = new HashMap<Integer,String>();
-       // Map<String, Map<String, String>> advertmaps = new HashMap<String, Map<String, String>>();
         Map<String,List<Advert>> filemaps = new HashMap<String, List<Advert>>();
         try {
             String encoding = "UTF-8";
-            File file = new File(filePath);
+            File file = new File(advertFilePath);
             int count = 0;//定义顺序变量
             if (file.isFile() && file.exists()) { // 判断文件是否存在
                 InputStreamReader read = new InputStreamReader(
                         new FileInputStream(file), encoding);// 考虑到编码格式
                 BufferedReader bufferedReader = new BufferedReader(read);
-                String lineTxt = null;
+                String lineTxt;
+                String[] vals;
+                String tes;
                 while ((lineTxt = bufferedReader.readLine()) != null) {//按行读取
                     System.out.println("lineTxt=" + lineTxt);
                     if (!"".equals(lineTxt)) {
                         String reds = lineTxt.split("\\+")[0];//对行的内容进行分析处理后再放入map里。
                         System.out.println(reds);
-                        String[] vals = reds.split(",");
+                         vals = reds.split(",");
                         Advert advert = new Advert();
                         advert.setCity(vals[1]);
                         advert.setTitle(vals[2]);
-                        advert.setLable(vals[3]);
+                        advert.setLabel(vals[3]);
                         advert.setUrl(vals[4]);
                         List<Advert> advertList = new ArrayList<>();
                         advertList.add(advert);
-                        if (filemaps.containsKey(vals[0])){
-                             advertList.addAll(filemaps.get(vals[0]));
+                        tes = vals[0];
+                        List<Advert> addlist = filemaps.get(tes);
+                        if (filemaps.containsKey(tes)){
+                            //List<Advert> addlist = filemaps.get(vals[0]);
+                             System.out.println("包含主键");
+                             advertList.addAll(filemaps.get(tes));
+                             System.out.println("======"+ tes);
                         }
-                        filemaps.put(vals[0],advertList);
+                        filemaps.put(tes,advertList);
                     }
                 }
                 read.close();//关闭InputStreamReader
@@ -109,9 +114,9 @@ public class test2 {
 
 
            // getAdvertFromDB();
-            String filename = "D:\\tmp\\advert.txt";
-            Map<String,List<Advert>> filemaps = readTxtFile(filename);
-            List<Advert> advertList = filemaps.get("南极居");
+            String advertFilePath = "D:\\tmp\\advert.txt";
+            Map<String,List<Advert>> advertsMap = getAdvertsMap(advertFilePath);
+            List<Advert> advertList = advertsMap.get("南极居");
             String str = null;
             for (Advert a: advertList
                  ) {

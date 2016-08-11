@@ -17,12 +17,12 @@ public class test1 {
     //从广告表导出广告到文本（mody by majinwen 20160802）
     private static void getAdvertFromDB() throws IOException {
         StringBuilder str = new StringBuilder();
-        str.append("桃源居").append(",").append("北京市").append(",")
-                .append("titleval").append("|").append("lableval").append("|").append("urlval");
+        str.append("城").append(",").append("廊坊").append(",")
+                .append("城标题").append("|").append("城标签").append("|").append("urlval");
         str.append("\r\n");
 
         str.append("桃源居").append(",").append("上海市").append(",")
-                .append("titleval").append("|").append("lableval").append("|").append("urlval");
+                .append("桃源居titleval").append("|").append("lableval").append("|").append("urlval");
         str.append("\r\n");
 
         str.append("南极居").append(",").append("南京市").append(",")
@@ -60,6 +60,7 @@ public class test1 {
          // Map<Integer,String> filemaps = new HashMap<Integer,String>();
          Map<String, Map<String, String>> advertmaps = new HashMap<String, Map<String, String>>();
          //Map<Integer,List> filemaps = new HashMap<Integer,String>();
+
          try {
              String encoding = "UTF-8";
              File file = new File(filePath);
@@ -110,13 +111,10 @@ public class test1 {
             String filename = "D:\\tmp\\advert.txt";
             Map<String, Map<String, String>> filemaps = readTxtFile(filename);
             int num = filemaps.size();// 行数
-            /*for (int i = 0; i < num; i++) {
-                String str = filemaps.get(i).get(i);
-                System.out.println("第"+ i + "个:"+ str);
-            }*/
-            String str = filemaps.get("keywordval").get("cityval");
+            String tes= "城";
+            String city = "廊坊";
+            String str = filemaps.get(tes).get(city);
             System.out.println("关键字+城市的广告:"+ str);
-
 
         } catch (IOException e) {
             e.printStackTrace();
