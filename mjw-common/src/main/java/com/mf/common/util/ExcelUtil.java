@@ -3,8 +3,7 @@ package com.mf.common.util;
 /**
  * Created by pony on 2017/8/27.
  */
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,13 +21,33 @@ public class ExcelUtil {
 
     public static void main(String[] args) {
         String path = "D:\\document\\聚合房源\\a.xls";
+        String filepath = "D:\\document\\聚合房源\\b.txt";
+
         try {
             List<List<String>> result = new ExcelUtil().readXls(path);
             System.out.println(result.size());
-            for (int i = 0; i < result.size(); i++) {
+           // for (int i = 0; i < result.size(); i++) {
+             //   List<String> model = result.get(i);
+              //  System.out.println("orderNum:" + model.get(0) + "--> orderAmount:" + model.get(1));
+              //  System.out.println("orderNum:" + model.get(0) + "--> orderAmount:" + model.get(1));
+           // }
+
+            BufferedWriter dataFileWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(filepath), "gbk"));
+
+            StringBuilder record = new StringBuilder(256);
+            int recnum = 0;
+            for (int i = 0; i < 100; i++) {
+                record.setLength(0);
                 List<String> model = result.get(i);
-                System.out.println("orderNum:" + model.get(0) + "--> orderAmount:" + model.get(1));
+               // System.out.println( model.get(0) + "\t" +"链家地产"+"\t" + model.get(3)+"\t"+model.get(2));
+                record.append(model.get(0)).append("\t").append("链家地产").append("\t").append(model.get(3)).append("\t").append( model.get(2)).append("\n");
+                dataFileWriter.write(record.toString());
+                recnum ++;
             }
+            dataFileWriter.flush();
+            dataFileWriter.close();
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
